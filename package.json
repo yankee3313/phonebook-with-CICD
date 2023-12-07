@@ -8,12 +8,17 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:e2e": "cypress run",
     "build:ui": "rmdir /s /q build && cd ./client/ && npm run build && xcopy /E /I build ..\\build && rmdir /s /q build",
     "deploy": "fly deploy",
     "deploy:full": "npm run build:ui && npm run deploy",
     "logs:prod": "fly logs",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "start:test": "NODE_ENV=test node index.js"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   },
   "author": "",
   "license": "ISC",
@@ -54,5 +59,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  
 }

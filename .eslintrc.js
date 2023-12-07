@@ -4,7 +4,8 @@ module.exports = {
     'browser': true,
     'commonjs': true,
     'es2021': true,
-    'node': true
+    'node': true,
+    'cypress/globals': true
   },
   'extends': 'eslint:recommended',
   'overrides': [
@@ -29,6 +30,9 @@ module.exports = {
       'error',
       'never'
     ],
+    "plugins": [
+      "react", "jest", "cypress"
+  ],
     'eqeqeq': 'error',
     'no-trailing-spaces': 'error',
     'object-curly-spacing': [
