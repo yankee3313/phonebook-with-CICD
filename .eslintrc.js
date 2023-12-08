@@ -11,8 +11,8 @@ module.exports = {
     'eslint:recommended',
     'plugin:cypress/recommended'
   ],
-  "plugins": [
-    "react", "jest", "cypress"
+  'plugins': [
+    'react', 'jest', 'cypress'
   ],
   'overrides': [
   ],
