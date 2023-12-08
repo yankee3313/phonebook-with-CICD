@@ -11,6 +11,9 @@ module.exports = {
     'eslint:recommended',
     'plugin:cypress/recommended'
   ],
+  "plugins": [
+    "react", "jest", "cypress"
+  ],
   'overrides': [
   ],
   'parserOptions': {
@@ -33,9 +36,6 @@ module.exports = {
       'error',
       'never'
     ],
-    'plugins': [
-      "react", "jest", "cypress"
-  ],
     'eqeqeq': 'error',
     'no-trailing-spaces': 'error',
     'object-curly-spacing': [
