@@ -7,7 +7,10 @@ module.exports = {
     'node': true,
     'cypress/globals': true
   },
-  'extends': 'eslint:recommended',
+  'extends': [
+    'eslint:recommended',
+    'plugin:cypress/recommended'
+  ],
   'overrides': [
   ],
   'parserOptions': {
