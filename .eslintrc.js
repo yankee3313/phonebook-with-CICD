@@ -33,7 +33,7 @@ module.exports = {
       'error',
       'never'
     ],
-    "plugins": [
+    'plugins': [
       "react", "jest", "cypress"
   ],
     'eqeqeq': 'error',
