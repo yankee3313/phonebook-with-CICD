@@ -21,10 +21,14 @@
     "cypress:open": "cypress open",
     "dev": "vite --host"
   },
+  "globals": {
+    "cy": true
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:cypress/recommended"
     ]
   },
   "browserslist": {

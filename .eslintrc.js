@@ -1,25 +1,38 @@
-/* eslint-disable linebreak-style */
 module.exports = {
   'env': {
     'browser': true,
-    'commonjs': true,
     'es2021': true,
     'node': true,
+    'jest/globals': true,
     'cypress/globals': true
   },
   'extends': [
     'eslint:recommended',
+    'plugin:react/recommended',
     'plugin:cypress/recommended'
   ],
+  'overrides': [
+    {
+      'env': {
+        'node': true
+      },
+      'files': [
+        '.eslintrc.{js,cjs}'
+      ],
+      'parserOptions': {
+        'sourceType': 'script'
+      }
+    }
+  ],
+  'parserOptions': {
+    'ecmaVersion': 'latest',
+    'sourceType': 'module'
+  },
   'plugins': [
     'react', 'jest', 'cypress'
   ],
-  'overrides': [
-  ],
-  'parserOptions': {
-    'ecmaVersion': 'latest'
-  },
   'rules': {
+    'no-trailing-spaces': 'error',
     'indent': [
       'error',
       2
@@ -36,14 +49,11 @@ module.exports = {
       'error',
       'never'
     ],
-    'eqeqeq': 'error',
-    'no-trailing-spaces': 'error',
-    'object-curly-spacing': [
-      'error', 'always'
-    ],
-    'arrow-spacing': [
-      'error', { 'before': true, 'after': true }
-    ],
     'no-console': 0
+  },
+  'settings': {
+    'react': {
+      'version': 'detect'
+    }
   }
 }
