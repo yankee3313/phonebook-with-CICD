@@ -11,7 +11,7 @@
       "dev": "nodemon index.js",
       "test": "jest",
       "test:e2e": "cypress run",
-      "build:ui": "cd ./client/ && npm run build && xcopy /E /I build ..\\build && rmdir /s /q build",
+      "build:ui": "cd ./client/ && npm run build && cp -r build/* ../build/ && rm -r build/",
       "deploy": "fly deploy",
       "deploy:full": "npm run build:ui && npm run deploy",
       "logs:prod": "fly logs",
