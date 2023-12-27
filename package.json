@@ -46,6 +46,7 @@
         "cypress": "^13.6.1",
         "eslint": "^8.36.0",
         "eslint-plugin-cypress": "^2.15.1",
+        "eslint-plugin-jest": "^27.6.0",
         "eslint-plugin-react": "^7.33.2",
         "jest": "^25.5.4",
         "nodemon": "^2.0.21",
