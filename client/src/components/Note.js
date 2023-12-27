@@ -18,9 +18,10 @@ const Note = (p) => {
       setTimeout(() => {
         p.setErrorMessage(null)
       }, 3000)
-  } 
+  }
+
   const name = p.name;
-  if (name.replaceAll(/\s/gi, '').toLowerCase().includes(p.searchItem.toLowerCase()))
+  if (name.replaceAll(/\s/gi, '').toLowerCase().includes(p.searchItem.replaceAll(/\s/gi, '').toLowerCase()))
     return (
       <div>
         <li>{p.name} {p.number}

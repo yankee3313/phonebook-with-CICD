@@ -9,7 +9,7 @@
     "scripts": {
         "start": "node index.js",
         "dev": "nodemon index.js",
-        "test": "jest",
+        "test": "cd ./client && jest",
         "test:e2e": "cypress run",
         "build:ui": "cd ./client && npm run build && cp -r build ..",
         "deploy": "fly deploy",
@@ -24,7 +24,6 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@testing-library/user-event": "^13.5.0",
         "axios": "^1.6.2",
         "cors": "^2.8.5",
         "dotenv": "^16.0.3",
@@ -41,6 +40,7 @@
         "@babel/preset-react": "^7.9.4",
         "@testing-library/jest-dom": "^5.8.0",
         "@testing-library/react": "^14.1.2",
+        "@testing-library/user-event": "^13.5.0",
         "babel-jest": "^25.5.1",
         "babel-loader": "^8.1.0",
         "cypress": "^13.6.1",
