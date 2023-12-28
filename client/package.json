@@ -16,7 +16,9 @@
     "test": "jest",
     "eject": "react-scripts eject",
     "proxy": "http://localhost:3001",
-    "dev": "vite --host"
+    "dev": "vite --host",
+    "cypress:open": "cypress open",
+    "test:e2e": "cypress run"
   },
   "globals": {
     "cy": true
