@@ -16,7 +16,8 @@
         "deploy:full": "npm run build:ui && npm run deploy",
         "logs:prod": "fly logs",
         "lint": "eslint .",
-        "start:test": "NODE_ENV=test node index.js"
+        "start:test": "NODE_ENV=test node index.js",
+        "cypress:open": "cypress open"
     },
     "globals": {
         "cy": true
@@ -43,7 +44,7 @@
         "@testing-library/user-event": "^13.5.0",
         "babel-jest": "^25.5.1",
         "babel-loader": "^8.1.0",
-        "cypress": "^13.6.1",
+        "cypress": "^13.6.2",
         "eslint": "^8.36.0",
         "eslint-plugin-cypress": "^2.15.1",
         "eslint-plugin-jest": "^27.6.0",
@@ -76,5 +77,5 @@
     "jest": {
         "testEnvironment": "jsdom",
         "verbose": true
-      }
+    }
 }
