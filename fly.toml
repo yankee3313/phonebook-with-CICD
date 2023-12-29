@@ -10,9 +10,6 @@ primary_region = "iad"
   [build.args]
     NODE_VERSION = "16.19.1"
 
-[deploy]
-  release_command = "npm run build:ui"
-
 [env]
   PORT = "3001"
 
