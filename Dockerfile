@@ -30,9 +30,13 @@ COPY --link . .
 # Build frontend assets
 WORKDIR /app/client
 RUN npm install
+RUN npm run build
 
+# Move built files from client/build to app directory
+RUN mv build/* ../
+
+# Move back to the root directory
 WORKDIR /app
-RUN npm run build:ui
 
 # Final stage for app image
 FROM base
