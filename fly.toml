@@ -13,9 +13,6 @@ primary_region = "iad"
 [processes]
   app = "node index.js"
 
-[deploy]
-  release_command = "npm run build:ui"
-
 [http_service]
   internal_port = 8080
   force_https = true
