@@ -7,6 +7,10 @@ app = "phonebookrc"
 primary_region = "iad"
 
 [build]
+builder = "docker"
+ command = "npm install && npm run build:ui"
+ buildpack = ""
+ args = []
 
 [env]
   PORT = "3001"
