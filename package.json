@@ -38,6 +38,7 @@
         "@babel/plugin-transform-runtime": "^7.10.0",
         "@babel/preset-env": "^7.23.6",
         "@babel/preset-react": "^7.9.4",
+        "@flydotio/dockerfile": "^0.5.0",
         "@testing-library/jest-dom": "^5.8.0",
         "@testing-library/react": "^14.1.2",
         "@testing-library/user-event": "^13.5.0",
