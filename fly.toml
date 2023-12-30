@@ -23,27 +23,3 @@ primary_region = "iad"
   auto_start_machines = true
   min_machines_running = 0
   processes = ["app"]
-
-[services]
- internal_port = 3001
- protocol = "tcp"
- [[services.ports]]
-  handlers = ["http"]
-  port = "80"
- [[services.ports]]
-  handlers = ["tls", "http"]
-  port = "443"
- [[services.ports]]
-  handlers = ["tls"]
-  port = "8443"
- [[services.ports]]
-  handlers = ["tls"]
-  port = "3001"
- [services.concurrency]
-  hard_limit = 25
-  soft_limit = 20
- [services.scaling]
-  kind = "fixed"
-  count = 1
- [services.processes]
-  - "app"
