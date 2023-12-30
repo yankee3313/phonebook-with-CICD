@@ -20,13 +20,6 @@ FROM base as build
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python
 
-# Install node modules
-COPY --link package-lock.json package.json ./
-RUN npm ci
-
-# Copy application code
-COPY --link . .
-
 # Build frontend assets
 WORKDIR /app/client
 RUN npm install
@@ -37,6 +30,13 @@ RUN mv build/* ../
 
 # Move back to the root directory
 WORKDIR /app
+
+# Install node modules
+COPY --link package-lock.json package.json ./
+RUN npm ci
+
+# Copy application code
+COPY --link . .
 
 # Final stage for app image
 FROM base
