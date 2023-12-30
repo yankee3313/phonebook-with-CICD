@@ -20,16 +20,16 @@ FROM base as build
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python
 
-# Build frontend assets
-WORKDIR /app/client
-RUN npm install
-RUN npm run build
+# # Build frontend assets
+# WORKDIR /app/client
+# RUN npm install
+# RUN npm run build
 
-# Move built files from client/build to app directory
-RUN mv build/* ../
+# # Move built files from client/build to app directory
+# RUN mv build/* ../
 
-# Move back to the root directory
-WORKDIR /app
+# # Move back to the root directory
+# WORKDIR /app
 
 # Install node modules
 COPY --link package-lock.json package.json ./
