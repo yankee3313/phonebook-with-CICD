@@ -7,9 +7,14 @@ app = "phonebookrc"
 primary_region = "iad"
 
 [build]
+  [build.args]
+    NODE_VERSION = "16.19.1"
+
+[processes]
+  app = "node index.js"
 
 [http_service]
-  internal_port = 3000
+  internal_port = 3001
   force_https = true
   auto_stop_machines = true
   auto_start_machines = true
