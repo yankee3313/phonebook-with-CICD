@@ -13,6 +13,9 @@ primary_region = "iad"
 [env]
   PORT = "3001"
 
+[processes]
+  app = "node index.js"
+
 [http_service]
   internal_port = 3001
   force_https = true
@@ -21,10 +24,26 @@ primary_region = "iad"
   min_machines_running = 0
   processes = ["app"]
 
-[processes]
-  app = "node index.js"
-
-[[services]]
+[services]
+ internal_port = 3001
+ protocol = "tcp"
+ [[services.ports]]
+  handlers = ["http"]
+  port = "80"
+ [[services.ports]]
+  handlers = ["tls", "http"]
+  port = "443"
+ [[services.ports]]
+  handlers = ["tls"]
+  port = "8443"
+ [[services.ports]]
+  handlers = ["tls"]
+  port = "3001"
+ [services.concurrency]
+  hard_limit = 25
+  soft_limit = 20
  [services.scaling]
-   kind = "fixed"
-   count = 1
+  kind = "fixed"
+  count = 1
+ [services.processes]
+  - "app"
