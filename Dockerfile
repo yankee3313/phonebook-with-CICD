@@ -16,7 +16,8 @@ ENV NODE_ENV="production"
 FROM base as build
 
 # Install packages needed to build node modules
-RUN npm install
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python
 
 # Install node modules
 COPY --link package-lock.json package.json ./
