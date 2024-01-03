@@ -22,7 +22,9 @@ RUN npm ci
 
 # Install packages needed to build node modules
 RUN npm install
-RUN cd client && npm install
+
+WORKDIR /app/client
+RUN npm install
 
 # Copy application code
 COPY --link . .
