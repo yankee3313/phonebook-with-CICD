@@ -21,6 +21,7 @@ COPY --link package-lock.json package.json ./
 RUN npm ci
 
 # Install packages needed to build node modules
+WORKDIR /app
 RUN npm install
 
 WORKDIR /app/client
