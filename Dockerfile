@@ -9,35 +9,16 @@ LABEL fly_launch_runtime="Node.js"
 # Node.js app lives here
 WORKDIR /app
 
-# Set production environment
-ENV NODE_ENV="production"
-
-
-# Throw-away build stage to reduce size of final image
-FROM base as build
-
 # Install node modules
-COPY --link package-lock.json package.json ./
-RUN npm ci
-
-# Install packages needed to build node modules
-WORKDIR /app
+COPY package*.json ./
 RUN npm install
 
 WORKDIR /app/client
 RUN npm install
 
-# Copy application code
-COPY --link . .
-
-# Build the frontend assets
+WORKDIR /app
 RUN npm run build:ui
-
-# Final stage for app image
-FROM base
-
-# Copy built application
-COPY --from=build /app /app
+COPY . .
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
