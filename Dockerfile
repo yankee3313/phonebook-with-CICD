@@ -12,6 +12,7 @@ WORKDIR /app
 # Set production environment
 ENV NODE_ENV="production"
 
+
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
@@ -26,6 +27,7 @@ RUN npm ci
 # Copy application code
 COPY --link . .
 
+
 # Final stage for app image
 FROM base
 
@@ -33,5 +35,5 @@ FROM base
 COPY --from=build /app /app
 
 # Start the server by default, this can be overwritten at runtime
-EXPOSE 3001
+EXPOSE 3000
 CMD [ "npm", "run", "start" ]

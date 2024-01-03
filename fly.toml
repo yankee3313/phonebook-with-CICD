@@ -1,20 +1,26 @@
-# fly.toml app configuration file generated for phonebookrc on 2023-12-30T00:09:40-06:00
+# fly.toml app configuration file generated for phonebook-with-cicd on 2024-01-02T17:53:24-06:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "phonebookrc"
+app = "phonebook-with-cicd"
 primary_region = "iad"
+
+[deploy]
+  release_command = "npm run build:ui"
+
+[processes]
+  app = "node index.js"
 
 [build]
   [build.args]
     NODE_VERSION = "16.19.1"
 
-[processes]
-  app = "node index.js"
+[env]
+  PORT = "3000"
 
 [http_service]
-  internal_port = 3001
+  internal_port = 3000
   force_https = true
   auto_stop_machines = true
   auto_start_machines = true
@@ -25,8 +31,3 @@ primary_region = "iad"
   cpu_kind = "shared"
   cpus = 1
   memory_mb = 1024
-
-[services]
-  [services.scaling]
-  kind = "fixed"
-  count = 1
