@@ -6,9 +6,6 @@
 app = "phonebook-with-cicd"
 primary_region = "iad"
 
-[deploy]
-  release_command = "npm run build:ui"
-
 [processes]
   app = "node index.js"
 

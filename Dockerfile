@@ -16,17 +16,19 @@ ENV NODE_ENV="production"
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
-# Install packages needed to build node modules
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python
-
 # Install node modules
 COPY --link package-lock.json package.json ./
 RUN npm ci
 
+# Install packages needed to build node modules
+RUN npm install
+RUN cd client && npm install
+
 # Copy application code
 COPY --link . .
 
+# Build the frontend assets
+RUN npm run build:ui
 
 # Final stage for app image
 FROM base
