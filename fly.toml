@@ -25,7 +25,7 @@ primary_region = "iad"
   processes = ["app"]
 
 [services]
-  [[services.http_checks]]
+  [services.http_checks]
     interval = 10000
     grace_period = "5s"
     method = "get"
