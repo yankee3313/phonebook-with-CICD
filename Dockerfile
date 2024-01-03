@@ -12,12 +12,6 @@ WORKDIR /app
 # Install node modules
 COPY package*.json ./
 RUN npm install
-
-WORKDIR /app/client
-RUN npm install
-
-WORKDIR /app
-RUN npm run build:ui
 COPY . .
 
 # Start the server by default, this can be overwritten at runtime
